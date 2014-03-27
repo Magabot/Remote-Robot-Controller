@@ -1,0 +1,40 @@
+﻿<Window x:Class="RemoteRobotController.XboxGamepadWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="XboxGamepadWindow" Height="241" Width="231"
+    WindowStyle="None" AllowsTransparency="True"
+    Topmost="False" Name="xboxGamepadWindow" Icon="/RemoteRobotController;component/Images/xbox-controller.png">
+    
+    <Window.Background>
+        <SolidColorBrush />
+    </Window.Background>
+
+    <Border CornerRadius="5" BorderBrush="{StaticResource {x:Static SystemColors.ControlTextBrushKey}}" BorderThickness="5,0,5,5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30
+                               " />
+                <RowDefinition Height="136*" />
+            </Grid.RowDefinitions>
+
+            <Border Background="{StaticResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+              CornerRadius="5,5,0,0" Margin="-1,0" MouseLeftButtonDown="DragWindow">
+                <Grid Height="30">
+                    <TextBlock Foreground="White" FontWeight="Normal" VerticalAlignment="Center" Margin="6,6,0,0" Height="20" Width="101" Text="Xbox Gamepad" HorizontalAlignment="Left" />
+                    <Button Content="o" VerticalAlignment="Center" Margin="0,-1,53,0" FontSize="7" Height="22" Padding="0" Name="maximizeButton" Click="maximizeButton_Click" Focusable="False" HorizontalAlignment="Right" Width="22" />
+                    <Button Content="X" VerticalAlignment="Center" FontSize="7" Height="22" Padding="0" Click="closeButton_Click" Focusable="False" Foreground="White" Background="#B4A52A2A" BorderBrush="#A7000000" Width="50" HorizontalAlignment="Right" Margin="0,-1,0,0" />
+                </Grid>
+            </Border>
+
+            <Canvas Margin="-1,0,-1,0" Grid.Row="1" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="MainCanvas">
+                <Expander Header="Warnings" Height="125" Name="expanderWarnings" Width="200" Focusable="False" IsExpanded="True" HorizontalAlignment="Right" Foreground="#FF4E4E4E" IsEnabled="True" >
+                    <Grid Width="199" Height="145">
+                        <Image Height="50" Name="imageHoleAlert" Stretch="Fill" Width="200" Source="/RemoteRobotController;component/Images/holeAlert.png" VerticalAlignment="Stretch" />
+                        <Image Height="50" Name="imageBumpAlert" Stretch="Fill" Width="200" Source="/RemoteRobotController;component/Images/bumpAlert.png" VerticalAlignment="Stretch" />
+                    </Grid>
+                </Expander>
+            </Canvas>
+
+        </Grid>
+    </Border>
+</Window>
